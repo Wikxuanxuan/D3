@@ -1,43 +1,71 @@
 {
-  "name": "app",
-  "version": "0.1.0",
+  "name": "react-vite-demo",
+  "version": "0.0.0",
+  "license": "MIT",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.13",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start:dev": "vite --mode dev",
+    "start:prod": "vite --mode prod",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "lint:stage": "eslint src --fix --ext .ts,.tsx "
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@datlas/design": "^1.21.0",
+    "antd": "^4.17.1",
+    "lz-string": "^1.4.4",
+    "maptalks": "^1.0.0-beta.6",
+    "mobx": "^6.3.7",
+    "mobx-react": "^7.2.1",
+    "parse-domain": "^4.1.0",
+    "path": "^0.12.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/*.{js,jsx,mjs,ts,tsx}": [
+      "node_modules/.bin/eslint --fix",
+      "yarn lint:stage"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-emoji"
+    }
+  },
+  "devDependencies": {
+    "@types/lz-string": "^1.3.34",
+    "@types/maptalks": "^0.49.1",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vitejs/plugin-react": "^1.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-emoji": "^1.0.2",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "gitmoji-cli": "^4.7.0",
+    "husky": "^7.0.4",
+    "less": "^4.1.2",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.4.1",
+    "typescript": "^4.5.2",
+    "vite": "^2.6.14",
+    "vite-plugin-eslint": "^1.3.0",
+    "vite-plugin-imp": "^2.0.10"
   }
 }
